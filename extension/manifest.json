@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Claude Token Sayacı",
+  "version": "1.0.0",
+  "description": "claude.ai sohbetlerinde kullanılan tahmini token sayısını canlı gösterir.",
+  "content_scripts": [
+    {
+      "matches": ["https://claude.ai/*"],
+      "js": ["baseline.js", "content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

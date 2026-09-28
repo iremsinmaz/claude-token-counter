@@ -1,0 +1,6 @@
+# Sistem promptları yayınlanmaz; yalnızca sayılar (extension/baseline.js) repoda durur.
+reference/*.md
+
+build/
+xcuserdata/
+.DS_Store
