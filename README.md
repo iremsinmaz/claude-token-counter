@@ -68,6 +68,10 @@ Anthropic sistem promptunu model ve sürüme göre günceller. Taban değer ekle
    ```
 4. Chrome'da eklentiyi yeniden yükle; Safari'de yeniden derle.
 
+## Simge
+
+Simgeler [`scripts/simge-uret.py`](scripts/simge-uret.py) ile çizilir (Pillow gerekir): `python3 scripts/simge-uret.py`. Safari uygulamasının simgesi, Xcode projesi `safari-web-extension-converter` ile yeniden üretilirken bunlardan oluşturulur.
+
 ## Teşekkür
 
 Özellik bayraklarının adları ve `/usage` isteği [lugia19/Claude-Usage-Extension](https://github.com/lugia19/Claude-Usage-Extension)'dan öğrenildi. Oradan kod alınmadı; daha kapsamlı bir kullanım takibi arıyorsan o eklentiye göz at.

@@ -7,40 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1DB1A288306A9E0D00850475 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1A287306A9E0D00850475 /* AppDelegate.swift */; };
-		1DB1A28C306A9E0D00850475 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 1DB1A28A306A9E0D00850475 /* Main.html */; };
-		1DB1A28E306A9E0D00850475 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DB1A28D306A9E0D00850475 /* Icon.png */; };
-		1DB1A290306A9E0D00850475 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 1DB1A28F306A9E0D00850475 /* Style.css */; };
-		1DB1A292306A9E0D00850475 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 1DB1A291306A9E0D00850475 /* Script.js */; };
-		1DB1A294306A9E0D00850475 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1A293306A9E0D00850475 /* ViewController.swift */; };
-		1DB1A297306A9E0D00850475 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DB1A295306A9E0D00850475 /* Main.storyboard */; };
-		1DB1A299306A9E0E00850475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DB1A298306A9E0E00850475 /* Assets.xcassets */; };
-		1DB1A2A0306A9E0E00850475 /* Claude Token Sayaci Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 1DB1A29F306A9E0E00850475 /* Claude Token Sayaci Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		1DB1A2A5306A9E0E00850475 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1A2A4306A9E0E00850475 /* SafariWebExtensionHandler.swift */; };
-		1DB1A2B5306A9E0E00850475 /* content.css in Resources */ = {isa = PBXBuildFile; fileRef = 1DB1A2B1306A9E0E00850475 /* content.css */; };
-		1DB1A2B6306A9E0E00850475 /* baseline.js in Resources */ = {isa = PBXBuildFile; fileRef = 1DB1A2B2306A9E0E00850475 /* baseline.js */; };
-		1DB1A2B7306A9E0E00850475 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DB1A2B3306A9E0E00850475 /* manifest.json */; };
-		1DB1A2B8306A9E0E00850475 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 1DB1A2B4306A9E0E00850475 /* content.js */; };
+		1DDA5D20306AA5BA00925943 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDA5D1F306AA5BA00925943 /* AppDelegate.swift */; };
+		1DDA5D24306AA5BA00925943 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 1DDA5D22306AA5BA00925943 /* Main.html */; };
+		1DDA5D26306AA5BA00925943 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DDA5D25306AA5BA00925943 /* Icon.png */; };
+		1DDA5D28306AA5BA00925943 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 1DDA5D27306AA5BA00925943 /* Style.css */; };
+		1DDA5D2A306AA5BA00925943 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 1DDA5D29306AA5BA00925943 /* Script.js */; };
+		1DDA5D2C306AA5BA00925943 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDA5D2B306AA5BA00925943 /* ViewController.swift */; };
+		1DDA5D2F306AA5BA00925943 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DDA5D2D306AA5BA00925943 /* Main.storyboard */; };
+		1DDA5D31306AA5BA00925943 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DDA5D30306AA5BA00925943 /* Assets.xcassets */; };
+		1DDA5D38306AA5BA00925943 /* Claude Token Sayaci Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 1DDA5D37306AA5BA00925943 /* Claude Token Sayaci Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1DDA5D3D306AA5BA00925943 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDA5D3C306AA5BA00925943 /* SafariWebExtensionHandler.swift */; };
+		1DDA5D4E306AA5BA00925943 /* content.css in Resources */ = {isa = PBXBuildFile; fileRef = 1DDA5D49306AA5BA00925943 /* content.css */; };
+		1DDA5D4F306AA5BA00925943 /* baseline.js in Resources */ = {isa = PBXBuildFile; fileRef = 1DDA5D4A306AA5BA00925943 /* baseline.js */; };
+		1DDA5D50306AA5BA00925943 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 1DDA5D4B306AA5BA00925943 /* icons */; };
+		1DDA5D51306AA5BA00925943 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DDA5D4C306AA5BA00925943 /* manifest.json */; };
+		1DDA5D52306AA5BA00925943 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 1DDA5D4D306AA5BA00925943 /* content.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1DB1A2A1306A9E0E00850475 /* PBXContainerItemProxy */ = {
+		1DDA5D39306AA5BA00925943 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1DB1A27C306A9E0D00850475 /* Project object */;
+			containerPortal = 1DDA5D14306AA5BA00925943 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 1DB1A29E306A9E0E00850475;
+			remoteGlobalIDString = 1DDA5D36306AA5BA00925943;
 			remoteInfo = "Claude Token Sayaci Extension";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		1DB1A2AC306A9E0E00850475 /* Embed Foundation Extensions */ = {
+		1DDA5D44306AA5BA00925943 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				1DB1A2A0306A9E0E00850475 /* Claude Token Sayaci Extension.appex in Embed Foundation Extensions */,
+				1DDA5D38306AA5BA00925943 /* Claude Token Sayaci Extension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,34 +49,35 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1DB1A284306A9E0D00850475 /* Claude Token Sayaci.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Claude Token Sayaci.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1DB1A287306A9E0D00850475 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1DB1A28B306A9E0D00850475 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Main.html; sourceTree = "<group>"; };
-		1DB1A28D306A9E0D00850475 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		1DB1A28F306A9E0D00850475 /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
-		1DB1A291306A9E0D00850475 /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
-		1DB1A293306A9E0D00850475 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1DB1A296306A9E0D00850475 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1DB1A298306A9E0E00850475 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1DB1A29A306A9E0E00850475 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1DB1A29F306A9E0E00850475 /* Claude Token Sayaci Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Claude Token Sayaci Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1DB1A2A4306A9E0E00850475 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
-		1DB1A2A6306A9E0E00850475 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1DB1A2B1306A9E0E00850475 /* content.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = content.css; path = ../../../extension/content.css; sourceTree = "<group>"; };
-		1DB1A2B2306A9E0E00850475 /* baseline.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = baseline.js; path = ../../../extension/baseline.js; sourceTree = "<group>"; };
-		1DB1A2B3306A9E0E00850475 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../../extension/manifest.json; sourceTree = "<group>"; };
-		1DB1A2B4306A9E0E00850475 /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = content.js; path = ../../../extension/content.js; sourceTree = "<group>"; };
+		1DDA5D1C306AA5BA00925943 /* Claude Token Sayaci.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Claude Token Sayaci.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DDA5D1F306AA5BA00925943 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1DDA5D23306AA5BA00925943 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Main.html; sourceTree = "<group>"; };
+		1DDA5D25306AA5BA00925943 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		1DDA5D27306AA5BA00925943 /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		1DDA5D29306AA5BA00925943 /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		1DDA5D2B306AA5BA00925943 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1DDA5D2E306AA5BA00925943 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1DDA5D30306AA5BA00925943 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1DDA5D32306AA5BA00925943 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1DDA5D37306AA5BA00925943 /* Claude Token Sayaci Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Claude Token Sayaci Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DDA5D3C306AA5BA00925943 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		1DDA5D3E306AA5BA00925943 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1DDA5D49306AA5BA00925943 /* content.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = content.css; path = ../../../extension/content.css; sourceTree = "<group>"; };
+		1DDA5D4A306AA5BA00925943 /* baseline.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = baseline.js; path = ../../../extension/baseline.js; sourceTree = "<group>"; };
+		1DDA5D4B306AA5BA00925943 /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = ../../../extension/icons; sourceTree = "<group>"; };
+		1DDA5D4C306AA5BA00925943 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../../extension/manifest.json; sourceTree = "<group>"; };
+		1DDA5D4D306AA5BA00925943 /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = content.js; path = ../../../extension/content.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1DB1A281306A9E0D00850475 /* Frameworks */ = {
+		1DDA5D19306AA5BA00925943 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1DB1A29C306A9E0E00850475 /* Frameworks */ = {
+		1DDA5D34306AA5BA00925943 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -85,65 +87,66 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1DB1A27B306A9E0D00850475 = {
+		1DDA5D13306AA5BA00925943 = {
 			isa = PBXGroup;
 			children = (
-				1DB1A286306A9E0D00850475 /* Claude Token Sayaci */,
-				1DB1A2A3306A9E0E00850475 /* Claude Token Sayaci Extension */,
-				1DB1A285306A9E0D00850475 /* Products */,
+				1DDA5D1E306AA5BA00925943 /* Claude Token Sayaci */,
+				1DDA5D3B306AA5BA00925943 /* Claude Token Sayaci Extension */,
+				1DDA5D1D306AA5BA00925943 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		1DB1A285306A9E0D00850475 /* Products */ = {
+		1DDA5D1D306AA5BA00925943 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1DB1A284306A9E0D00850475 /* Claude Token Sayaci.app */,
-				1DB1A29F306A9E0E00850475 /* Claude Token Sayaci Extension.appex */,
+				1DDA5D1C306AA5BA00925943 /* Claude Token Sayaci.app */,
+				1DDA5D37306AA5BA00925943 /* Claude Token Sayaci Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1DB1A286306A9E0D00850475 /* Claude Token Sayaci */ = {
+		1DDA5D1E306AA5BA00925943 /* Claude Token Sayaci */ = {
 			isa = PBXGroup;
 			children = (
-				1DB1A287306A9E0D00850475 /* AppDelegate.swift */,
-				1DB1A293306A9E0D00850475 /* ViewController.swift */,
-				1DB1A295306A9E0D00850475 /* Main.storyboard */,
-				1DB1A298306A9E0E00850475 /* Assets.xcassets */,
-				1DB1A29A306A9E0E00850475 /* Info.plist */,
-				1DB1A289306A9E0D00850475 /* Resources */,
+				1DDA5D1F306AA5BA00925943 /* AppDelegate.swift */,
+				1DDA5D2B306AA5BA00925943 /* ViewController.swift */,
+				1DDA5D2D306AA5BA00925943 /* Main.storyboard */,
+				1DDA5D30306AA5BA00925943 /* Assets.xcassets */,
+				1DDA5D32306AA5BA00925943 /* Info.plist */,
+				1DDA5D21306AA5BA00925943 /* Resources */,
 			);
 			path = "Claude Token Sayaci";
 			sourceTree = "<group>";
 		};
-		1DB1A289306A9E0D00850475 /* Resources */ = {
+		1DDA5D21306AA5BA00925943 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1DB1A28A306A9E0D00850475 /* Main.html */,
-				1DB1A28D306A9E0D00850475 /* Icon.png */,
-				1DB1A28F306A9E0D00850475 /* Style.css */,
-				1DB1A291306A9E0D00850475 /* Script.js */,
+				1DDA5D22306AA5BA00925943 /* Main.html */,
+				1DDA5D25306AA5BA00925943 /* Icon.png */,
+				1DDA5D27306AA5BA00925943 /* Style.css */,
+				1DDA5D29306AA5BA00925943 /* Script.js */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		1DB1A2A3306A9E0E00850475 /* Claude Token Sayaci Extension */ = {
+		1DDA5D3B306AA5BA00925943 /* Claude Token Sayaci Extension */ = {
 			isa = PBXGroup;
 			children = (
-				1DB1A2B0306A9E0E00850475 /* Resources */,
-				1DB1A2A4306A9E0E00850475 /* SafariWebExtensionHandler.swift */,
-				1DB1A2A6306A9E0E00850475 /* Info.plist */,
+				1DDA5D48306AA5BA00925943 /* Resources */,
+				1DDA5D3C306AA5BA00925943 /* SafariWebExtensionHandler.swift */,
+				1DDA5D3E306AA5BA00925943 /* Info.plist */,
 			);
 			path = "Claude Token Sayaci Extension";
 			sourceTree = "<group>";
 		};
-		1DB1A2B0306A9E0E00850475 /* Resources */ = {
+		1DDA5D48306AA5BA00925943 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1DB1A2B1306A9E0E00850475 /* content.css */,
-				1DB1A2B2306A9E0E00850475 /* baseline.js */,
-				1DB1A2B3306A9E0E00850475 /* manifest.json */,
-				1DB1A2B4306A9E0E00850475 /* content.js */,
+				1DDA5D49306AA5BA00925943 /* content.css */,
+				1DDA5D4A306AA5BA00925943 /* baseline.js */,
+				1DDA5D4B306AA5BA00925943 /* icons */,
+				1DDA5D4C306AA5BA00925943 /* manifest.json */,
+				1DDA5D4D306AA5BA00925943 /* content.js */,
 			);
 			name = Resources;
 			path = "Claude Token Sayaci Extension";
@@ -152,34 +155,34 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1DB1A283306A9E0D00850475 /* Claude Token Sayaci */ = {
+		1DDA5D1B306AA5BA00925943 /* Claude Token Sayaci */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DB1A2AD306A9E0E00850475 /* Build configuration list for PBXNativeTarget "Claude Token Sayaci" */;
+			buildConfigurationList = 1DDA5D45306AA5BA00925943 /* Build configuration list for PBXNativeTarget "Claude Token Sayaci" */;
 			buildPhases = (
-				1DB1A280306A9E0D00850475 /* Sources */,
-				1DB1A281306A9E0D00850475 /* Frameworks */,
-				1DB1A282306A9E0D00850475 /* Resources */,
-				1DB1A2AC306A9E0E00850475 /* Embed Foundation Extensions */,
+				1DDA5D18306AA5BA00925943 /* Sources */,
+				1DDA5D19306AA5BA00925943 /* Frameworks */,
+				1DDA5D1A306AA5BA00925943 /* Resources */,
+				1DDA5D44306AA5BA00925943 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1DB1A2A2306A9E0E00850475 /* PBXTargetDependency */,
+				1DDA5D3A306AA5BA00925943 /* PBXTargetDependency */,
 			);
 			name = "Claude Token Sayaci";
 			packageProductDependencies = (
 			);
 			productName = "Claude Token Sayaci";
-			productReference = 1DB1A284306A9E0D00850475 /* Claude Token Sayaci.app */;
+			productReference = 1DDA5D1C306AA5BA00925943 /* Claude Token Sayaci.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1DB1A29E306A9E0E00850475 /* Claude Token Sayaci Extension */ = {
+		1DDA5D36306AA5BA00925943 /* Claude Token Sayaci Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DB1A2A9306A9E0E00850475 /* Build configuration list for PBXNativeTarget "Claude Token Sayaci Extension" */;
+			buildConfigurationList = 1DDA5D41306AA5BA00925943 /* Build configuration list for PBXNativeTarget "Claude Token Sayaci Extension" */;
 			buildPhases = (
-				1DB1A29B306A9E0E00850475 /* Sources */,
-				1DB1A29C306A9E0E00850475 /* Frameworks */,
-				1DB1A29D306A9E0E00850475 /* Resources */,
+				1DDA5D33306AA5BA00925943 /* Sources */,
+				1DDA5D34306AA5BA00925943 /* Frameworks */,
+				1DDA5D35306AA5BA00925943 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -189,115 +192,116 @@
 			packageProductDependencies = (
 			);
 			productName = "Claude Token Sayaci Extension";
-			productReference = 1DB1A29F306A9E0E00850475 /* Claude Token Sayaci Extension.appex */;
+			productReference = 1DDA5D37306AA5BA00925943 /* Claude Token Sayaci Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		1DB1A27C306A9E0D00850475 /* Project object */ = {
+		1DDA5D14306AA5BA00925943 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2660;
 				LastUpgradeCheck = 2660;
 				TargetAttributes = {
-					1DB1A283306A9E0D00850475 = {
+					1DDA5D1B306AA5BA00925943 = {
 						CreatedOnToolsVersion = 26.6;
 					};
-					1DB1A29E306A9E0E00850475 = {
+					1DDA5D36306AA5BA00925943 = {
 						CreatedOnToolsVersion = 26.6;
 					};
 				};
 			};
-			buildConfigurationList = 1DB1A27F306A9E0D00850475 /* Build configuration list for PBXProject "Claude Token Sayaci" */;
+			buildConfigurationList = 1DDA5D17306AA5BA00925943 /* Build configuration list for PBXProject "Claude Token Sayaci" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 1DB1A27B306A9E0D00850475;
+			mainGroup = 1DDA5D13306AA5BA00925943;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 1DB1A285306A9E0D00850475 /* Products */;
+			productRefGroup = 1DDA5D1D306AA5BA00925943 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1DB1A283306A9E0D00850475 /* Claude Token Sayaci */,
-				1DB1A29E306A9E0E00850475 /* Claude Token Sayaci Extension */,
+				1DDA5D1B306AA5BA00925943 /* Claude Token Sayaci */,
+				1DDA5D36306AA5BA00925943 /* Claude Token Sayaci Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1DB1A282306A9E0D00850475 /* Resources */ = {
+		1DDA5D1A306AA5BA00925943 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DB1A28E306A9E0D00850475 /* Icon.png in Resources */,
-				1DB1A297306A9E0D00850475 /* Main.storyboard in Resources */,
-				1DB1A292306A9E0D00850475 /* Script.js in Resources */,
-				1DB1A28C306A9E0D00850475 /* Main.html in Resources */,
-				1DB1A299306A9E0E00850475 /* Assets.xcassets in Resources */,
-				1DB1A290306A9E0D00850475 /* Style.css in Resources */,
+				1DDA5D26306AA5BA00925943 /* Icon.png in Resources */,
+				1DDA5D2F306AA5BA00925943 /* Main.storyboard in Resources */,
+				1DDA5D2A306AA5BA00925943 /* Script.js in Resources */,
+				1DDA5D24306AA5BA00925943 /* Main.html in Resources */,
+				1DDA5D31306AA5BA00925943 /* Assets.xcassets in Resources */,
+				1DDA5D28306AA5BA00925943 /* Style.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1DB1A29D306A9E0E00850475 /* Resources */ = {
+		1DDA5D35306AA5BA00925943 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DB1A2B8306A9E0E00850475 /* content.js in Resources */,
-				1DB1A2B5306A9E0E00850475 /* content.css in Resources */,
-				1DB1A2B7306A9E0E00850475 /* manifest.json in Resources */,
-				1DB1A2B6306A9E0E00850475 /* baseline.js in Resources */,
+				1DDA5D51306AA5BA00925943 /* manifest.json in Resources */,
+				1DDA5D50306AA5BA00925943 /* icons in Resources */,
+				1DDA5D4E306AA5BA00925943 /* content.css in Resources */,
+				1DDA5D4F306AA5BA00925943 /* baseline.js in Resources */,
+				1DDA5D52306AA5BA00925943 /* content.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1DB1A280306A9E0D00850475 /* Sources */ = {
+		1DDA5D18306AA5BA00925943 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DB1A294306A9E0D00850475 /* ViewController.swift in Sources */,
-				1DB1A288306A9E0D00850475 /* AppDelegate.swift in Sources */,
+				1DDA5D2C306AA5BA00925943 /* ViewController.swift in Sources */,
+				1DDA5D20306AA5BA00925943 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1DB1A29B306A9E0E00850475 /* Sources */ = {
+		1DDA5D33306AA5BA00925943 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DB1A2A5306A9E0E00850475 /* SafariWebExtensionHandler.swift in Sources */,
+				1DDA5D3D306AA5BA00925943 /* SafariWebExtensionHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1DB1A2A2306A9E0E00850475 /* PBXTargetDependency */ = {
+		1DDA5D3A306AA5BA00925943 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1DB1A29E306A9E0E00850475 /* Claude Token Sayaci Extension */;
-			targetProxy = 1DB1A2A1306A9E0E00850475 /* PBXContainerItemProxy */;
+			target = 1DDA5D36306AA5BA00925943 /* Claude Token Sayaci Extension */;
+			targetProxy = 1DDA5D39306AA5BA00925943 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1DB1A28A306A9E0D00850475 /* Main.html */ = {
+		1DDA5D22306AA5BA00925943 /* Main.html */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1DB1A28B306A9E0D00850475 /* Base */,
+				1DDA5D23306AA5BA00925943 /* Base */,
 			);
 			name = Main.html;
 			sourceTree = "<group>";
 		};
-		1DB1A295306A9E0D00850475 /* Main.storyboard */ = {
+		1DDA5D2D306AA5BA00925943 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1DB1A296306A9E0D00850475 /* Base */,
+				1DDA5D2E306AA5BA00925943 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -305,7 +309,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		1DB1A2A7306A9E0E00850475 /* Debug */ = {
+		1DDA5D3F306AA5BA00925943 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -368,7 +372,7 @@
 			};
 			name = Debug;
 		};
-		1DB1A2A8306A9E0E00850475 /* Release */ = {
+		1DDA5D40306AA5BA00925943 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -423,7 +427,7 @@
 			};
 			name = Release;
 		};
-		1DB1A2AA306A9E0E00850475 /* Debug */ = {
+		1DDA5D42306AA5BA00925943 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -457,7 +461,7 @@
 			};
 			name = Debug;
 		};
-		1DB1A2AB306A9E0E00850475 /* Release */ = {
+		1DDA5D43306AA5BA00925943 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -491,7 +495,7 @@
 			};
 			name = Release;
 		};
-		1DB1A2AE306A9E0E00850475 /* Debug */ = {
+		1DDA5D46306AA5BA00925943 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -532,7 +536,7 @@
 			};
 			name = Debug;
 		};
-		1DB1A2AF306A9E0E00850475 /* Release */ = {
+		1DDA5D47306AA5BA00925943 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -576,34 +580,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DB1A27F306A9E0D00850475 /* Build configuration list for PBXProject "Claude Token Sayaci" */ = {
+		1DDA5D17306AA5BA00925943 /* Build configuration list for PBXProject "Claude Token Sayaci" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1DB1A2A7306A9E0E00850475 /* Debug */,
-				1DB1A2A8306A9E0E00850475 /* Release */,
+				1DDA5D3F306AA5BA00925943 /* Debug */,
+				1DDA5D40306AA5BA00925943 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DB1A2A9306A9E0E00850475 /* Build configuration list for PBXNativeTarget "Claude Token Sayaci Extension" */ = {
+		1DDA5D41306AA5BA00925943 /* Build configuration list for PBXNativeTarget "Claude Token Sayaci Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1DB1A2AA306A9E0E00850475 /* Debug */,
-				1DB1A2AB306A9E0E00850475 /* Release */,
+				1DDA5D42306AA5BA00925943 /* Debug */,
+				1DDA5D43306AA5BA00925943 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DB1A2AD306A9E0E00850475 /* Build configuration list for PBXNativeTarget "Claude Token Sayaci" */ = {
+		1DDA5D45306AA5BA00925943 /* Build configuration list for PBXNativeTarget "Claude Token Sayaci" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1DB1A2AE306A9E0E00850475 /* Debug */,
-				1DB1A2AF306A9E0E00850475 /* Release */,
+				1DDA5D46306AA5BA00925943 /* Debug */,
+				1DDA5D47306AA5BA00925943 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 1DB1A27C306A9E0D00850475 /* Project object */;
+	rootObject = 1DDA5D14306AA5BA00925943 /* Project object */;
 }
