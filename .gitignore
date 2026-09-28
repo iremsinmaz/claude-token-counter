@@ -1,5 +1,6 @@
-# Sistem promptları yayınlanmaz; yalnızca sayılar (extension/baseline.js) repoda durur.
+# Yeni sistem promptları varsayılan olarak yayınlanmaz; paylaşılacak olanlar aşağıda tek tek açılır.
 reference/*.md
+!reference/claude-opus-5.5.md
 
 build/
 xcuserdata/

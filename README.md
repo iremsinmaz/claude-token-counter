@@ -60,7 +60,7 @@ Safari kurulumda "web sayfalarını okuyabilir, tarama geçmişini görebilir" g
 
 Anthropic sistem promptunu model ve sürüme göre günceller. Taban değer eklenti çalışırken hesaplanmaz; bir kez sayılıp [`extension/baseline.js`](extension/baseline.js) içine sabit yazılır.
 
-1. Güncel sistem promptunu `reference/<model>.md` olarak kaydet. Dosya adı model kimliğini belirler: `claude-opus-5.5.md` → `claude-opus-5-5`. Bu dosyalar repoya girmez (`.gitignore`).
+1. Güncel sistem promptunu `reference/<model>.md` olarak kaydet. Dosya adı model kimliğini belirler: `claude-opus-5.5.md` → `claude-opus-5-5`. Mevcut taban [`reference/claude-opus-5.5.md`](reference/claude-opus-5.5.md) ile sayıldı; yeni eklenen prompt dosyaları `.gitignore` ile varsayılan olarak repoya girmez.
 2. Gerekirse [`reference/bolumler.json`](reference/bolumler.json) içindeki kuralları güncelle. Hangi başlığın hangi özellik bayrağına ait olduğu burada tanımlı.
 3. Sayımı çalıştır (`count_tokens` ücretsizdir, ama prompt metni Anthropic API'sine gönderilir):
    ```sh
