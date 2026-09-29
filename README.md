@@ -2,14 +2,11 @@
 
 A browser extension that shows, as a small badge in the bottom-right corner of claude.ai, how many tokens the open chat takes up, the estimated load of the system prompt, and your account's usage limits. Works in Chrome and Safari.
 
-```
-Chat: ~12.4k tokens
-Session limit        34%
-Weekly limit         12%
-Baseline estimate  94.6k tokens
-```
+<p align="center">
+  <img src="docs/badge.png" alt="The badge collapsed (chat tokens, session and weekly limits, baseline estimate) and expanded with the full breakdown" width="589">
+</p>
 
-Click the badge to see the details.
+Click the badge to see the details (right). The screenshot uses sample data.
 
 ## How reliable is each number?
 
