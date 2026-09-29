@@ -1,8 +1,8 @@
 function show(enabled, useSettingsInsteadOfPreferences) {
     if (useSettingsInsteadOfPreferences) {
-        document.getElementsByClassName('state-on')[0].innerText = "Claude Token Sayaci’s extension is currently on. You can turn it off in the Extensions section of Safari Settings.";
-        document.getElementsByClassName('state-off')[0].innerText = "Claude Token Sayaci’s extension is currently off. You can turn it on in the Extensions section of Safari Settings.";
-        document.getElementsByClassName('state-unknown')[0].innerText = "You can turn on Claude Token Sayaci’s extension in the Extensions section of Safari Settings.";
+        document.getElementsByClassName('state-on')[0].innerText = "Claude Token Counter’s extension is currently on. You can turn it off in the Extensions section of Safari Settings.";
+        document.getElementsByClassName('state-off')[0].innerText = "Claude Token Counter’s extension is currently off. You can turn it on in the Extensions section of Safari Settings.";
+        document.getElementsByClassName('state-unknown')[0].innerText = "You can turn on Claude Token Counter’s extension in the Extensions section of Safari Settings.";
         document.getElementsByClassName('open-preferences')[0].innerText = "Quit and Open Safari Settings…";
     }
 

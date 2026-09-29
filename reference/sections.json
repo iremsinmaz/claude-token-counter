@@ -1,0 +1,33 @@
+{
+  "_notes": [
+    "Splits the system prompt into groups. Read by scripts/count-baseline.mjs.",
+    "Unit: each '# heading'. Top-level headings listed in 'split' are split at the '## heading' level.",
+    "Rules are tried in order; the first rule whose pattern matches the unit name picks the group, otherwise the unit goes to 'default'.",
+    "flag: the key in claude.ai's /api/account settings (and the conversation's settings). The group is counted when it is true.",
+    "Flag names come from lugia19/Claude-Usage-Extension; the section-to-flag mapping is a best guess from the headings.",
+    "kind 'connector': account-specific connector tools; not added to the baseline, shown separately."
+  ],
+  "split": ["Tools"],
+  "default": "core",
+  "groups": {
+    "core": { "label": "Core" },
+    "memory": { "label": "Memory", "flag": "enabled_saffron" },
+    "past_chats": { "label": "Past chat search", "flag": "enabled_saffron_search" },
+    "web_search": { "label": "Web search", "flag": "enabled_web_search" },
+    "code_files": { "label": "Code execution & file creation", "flag": "enabled_monkeys_in_a_barrel" },
+    "artifacts": { "label": "Artifacts", "flag": "preview_feature_uses_artifacts" },
+    "ai_artifacts": { "label": "AI-powered artifacts", "flag": "enabled_turmeric" },
+    "research": { "label": "Research", "flag": "enabled_compass" },
+    "connectors": { "label": "Connectors (Gmail, Calendar, Drive, Docs)", "kind": "connector" }
+  },
+  "rules": [
+    { "pattern": "^mcp__(Gmail|Google_Calendar|Google_Drive|Claude_Docs)__", "group": "connectors" },
+    { "pattern": "^(memory_|forbidden_memory_phrases$|appropriate_boundaries_re_memory$)", "group": "memory" },
+    { "pattern": "^(past_chats_tools|conversation_search|recent_chats|read_conversation)$", "group": "past_chats" },
+    { "pattern": "^(search_instructions|web_fetch|web_search|web_search_fast|image_search)$", "group": "web_search" },
+    { "pattern": "^(computer_use|available_skills|network_configuration|filesystem_configuration|bash_tool|create_file|str_replace|view|present_files|search_skills|suggest_skills)$", "group": "code_files" },
+    { "pattern": "^(publishing_artifacts|persistent_storage_for_artifacts|Artifact)$", "group": "artifacts" },
+    { "pattern": "^anthropic_api_in_artifacts$", "group": "ai_artifacts" },
+    { "pattern": "^suggest_research$", "group": "research" }
+  ]
+}

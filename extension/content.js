@@ -1,15 +1,15 @@
-// Claude Token Sayacı — claude.ai sohbetindeki tahmini token sayısını gösterir.
-// Sayılar tahminidir: sistem promptu ve bazı gizli içerikler görünmez,
-// Claude'un tokenizer'ı da açık değil.
+// Claude Token Counter — shows the estimated token count of the open claude.ai conversation.
+// The numbers are estimates: the system prompt and some hidden content are not
+// visible, and Claude's tokenizer is not public.
 
 (() => {
   "use strict";
 
   const REFRESH_DEBOUNCE_MS = 1500;
 
-  // --- Token tahmini -------------------------------------------------------
-  // ASCII metin için ~4 karakter/token; Türkçe karakterler (ş, ğ, ı, ...) ve
-  // diğer ASCII dışı karakterler genelde daha fazla token'a bölünür.
+  // --- Token estimate ------------------------------------------------------
+  // ~4 characters per token for ASCII text; non-ASCII characters (accented
+  // letters, other scripts) are usually split into more tokens.
   function estimateTokens(text) {
     if (!text) return 0;
     let ascii = 0;
@@ -36,7 +36,7 @@
     const res = await fetch("/api/organizations", { credentials: "include" });
     if (!res.ok) throw new Error("org " + res.status);
     const orgs = await res.json();
-    if (!orgs.length) throw new Error("org yok");
+    if (!orgs.length) throw new Error("no org");
     return (orgId = orgs[0].uuid);
   }
 
@@ -50,7 +50,7 @@
     return res.json();
   }
 
-  // Aynı veriyi her DOM değişikliğinde yeniden istememek için kısa süreli önbellek.
+  // Short-lived cache so the same data isn't re-requested on every DOM change.
   function cached(ttlMs, load) {
     let value = null;
     let at = 0;
@@ -59,7 +59,7 @@
       try {
         value = await load();
       } catch (e) {
-        console.debug("[Claude Token Sayacı]", e);
+        console.debug("[Claude Token Counter]", e);
         value = null;
       }
       at = Date.now();
@@ -73,13 +73,13 @@
     return res.json();
   }
 
-  // Hesap düzeyindeki özellik bayrakları (web araması, memory, ...).
+  // Account-level feature flags (web search, memory, ...).
   const accountSettings = cached(5 * 60 * 1000, async () => {
     const account = await getJson("/api/account");
     return account.settings || null;
   });
 
-  // Sunucunun bildirdiği kullanım limitleri — tahmin değil, claude.ai'nin kendi değeri.
+  // Usage limits reported by the server — not an estimate, claude.ai's own value.
   const usage = cached(30 * 1000, async () => {
     const u = await getJson(`/api/organizations/${await getOrgId()}/usage`);
     const limit = (percent, resetsAt) =>
@@ -93,14 +93,14 @@
         weekly: w ? limit(w.percent, w.resets_at) : null,
       };
     }
-    // Eski biçim: { five_hour: { utilization, resets_at }, seven_day: {...} }
+    // Older format: { five_hour: { utilization, resets_at }, seven_day: {...} }
     return {
       session: u.five_hour ? limit(u.five_hour.utilization, u.five_hour.resets_at) : null,
       weekly: u.seven_day ? limit(u.seven_day.utilization, u.seven_day.resets_at) : null,
     };
   });
 
-  // Dallanmış sohbetlerde yalnızca şu an görünen dalı al.
+  // In branched conversations, take only the currently visible branch.
   function activeBranch(conv) {
     const msgs = conv.chat_messages || [];
     const byId = new Map(msgs.map((m) => [m.uuid, m]));
@@ -141,7 +141,7 @@
     for (const a of msg.attachments || []) {
       attachments += estimateTokens(a.extracted_content || "");
     }
-    // Görseller/PDF'ler: içerik görünmez, kaba sabit tahmin.
+    // Images/PDFs: content isn't visible, so use a rough fixed estimate.
     attachments += (msg.files || msg.files_v2 || []).length * 1500;
     return { text: estimateTokens(text), attachments };
   }
@@ -157,7 +157,7 @@
         s.user += t.text;
       } else {
         s.claude += t.text;
-        // Her Claude yanıtı, önceki tüm sohbeti girdi olarak tekrar işler.
+        // Each Claude reply re-processes the whole conversation so far as input.
         s.processed += context;
         s.turns++;
       }
@@ -169,7 +169,7 @@
     return s;
   }
 
-  // --- Yedek: sayfadaki metin ---------------------------------------------
+  // --- Fallback: page text -------------------------------------------------
   function statsFromDom() {
     const user = [...document.querySelectorAll('[data-testid="user-message"]')];
     const claude = [...document.querySelectorAll(".font-claude-response")];
@@ -189,7 +189,7 @@
     return s;
   }
 
-  // --- Rozet ---------------------------------------------------------------
+  // --- Badge ---------------------------------------------------------------
   const fmt = (n) =>
     n == null ? "—" : n >= 1000 ? (n / 1000).toFixed(1) + "k" : String(n);
 
@@ -198,7 +198,7 @@
     if (el) return el;
     el = document.createElement("div");
     el.id = "cts-badge";
-    el.title = "Ayrıntılar için tıkla";
+    el.title = "Click for details";
     el.addEventListener("click", () => el.classList.toggle("cts-open"));
     document.body.appendChild(el);
     return el;
@@ -215,47 +215,47 @@
     return r;
   }
 
-  // Sistem promptunun taban değeri: scripts/taban-hesapla.mjs, promptu
-  // reference/bolumler.json'a göre gruplara ayırıp her grubu count_tokens ile bir
-  // kez sayar; sonuç baseline.js içinde sabit durur. Burada yalnızca açık olan
-  // özelliklerin grupları toplanır.
+  // System prompt baseline: scripts/count-baseline.mjs splits the prompt into
+  // groups per reference/sections.json and counts each group once with
+  // count_tokens; the result sits fixed in baseline.js. Here only the groups of
+  // enabled features are summed.
   function baselineFor(model, settings) {
     const b = globalThis.CTS_BASELINE;
     const models = (b && b.models) || {};
     const ids = Object.keys(models);
-    // Model bilinmiyorsa (sayfa metni yedeği) ve tek taban varsa onu kullan.
+    // If the model is unknown (page-text fallback) and there is one baseline, use it.
     const id = model ? (models[model] ? model : null) : ids.length === 1 ? ids[0] : null;
     if (!id) return null;
 
     const base = { model: id, countedAt: b.countedAt, tokens: 0, unknown: 0, connectors: 0, groups: [] };
     for (const g of Object.values(models[id].groups)) {
-      if (g.tur === "baglayici") {
+      if (g.kind === "connector") {
         base.connectors += g.tokens;
         continue;
       }
-      // Bayrak ayarlarda yoksa açık kabul edilir: taban üst sınır olarak kalır.
-      const state = !g.bayrak
-        ? "her-zaman"
-        : settings[g.bayrak] === true
-          ? "acik"
-          : settings[g.bayrak] === false
-            ? "kapali"
-            : "bilinmiyor";
-      if (state !== "kapali") base.tokens += g.tokens;
-      if (state === "bilinmiyor") base.unknown++;
-      base.groups.push({ etiket: g.etiket, tokens: g.tokens, state });
+      // A flag missing from settings counts as on, so the baseline stays an upper bound.
+      const state = !g.flag
+        ? "always"
+        : settings[g.flag] === true
+          ? "on"
+          : settings[g.flag] === false
+            ? "off"
+            : "unknown";
+      if (state !== "off") base.tokens += g.tokens;
+      if (state === "unknown") base.unknown++;
+      base.groups.push({ label: g.label, tokens: g.tokens, state });
     }
     return base;
   }
 
-  const pct = (l) => (l ? `%${Math.round(l.percent)}` : "—");
+  const pct = (l) => (l ? `${Math.round(l.percent)}%` : "—");
 
   function resetText(l, withDay) {
     if (!l || !l.resetsAt) return "";
     const opts = withDay
       ? { weekday: "short", hour: "2-digit", minute: "2-digit" }
       : { hour: "2-digit", minute: "2-digit" };
-    return l.resetsAt.toLocaleString("tr-TR", opts);
+    return l.resetsAt.toLocaleString(undefined, opts);
   }
 
   function render(s, settings, limits) {
@@ -263,20 +263,20 @@
     el.replaceChildren();
     const main = document.createElement("div");
     main.className = "cts-main";
-    main.textContent = s ? `Sohbet: ~${fmt(s.context)} token` : "Token sayacı: sohbet yok";
+    main.textContent = s ? `Chat: ~${fmt(s.context)} tokens` : "Token counter: no chat";
     el.appendChild(main);
 
-    // Sunucunun bildirdiği limitler sohbetten bağımsız; sohbet yokken de gösterilir.
+    // Server-reported limits don't depend on the chat; shown even with no chat open.
     if (limits) {
-      el.append(row("Oturum limiti", pct(limits.session)), row("Haftalık limit", pct(limits.weekly)));
+      el.append(row("Session limit", pct(limits.session)), row("Weekly limit", pct(limits.weekly)));
     }
     if (!s) return;
 
-    // Taban tahmin mesaj sayısına eklenmez; ayrı satırda durur.
+    // The baseline is not added to the chat count; it stays on its own line.
     const effective = { ...(settings || {}), ...s.settings };
     const base = baselineFor(s.model, effective);
     el.appendChild(
-      row("Taban tahmin", base ? `${fmt(base.tokens)} token${base.unknown ? " (üst sınır)" : ""}` : "yok")
+      row("Baseline estimate", base ? `${fmt(base.tokens)} tokens${base.unknown ? " (upper bound)" : ""}` : "none")
     );
 
     const d = document.createElement("div");
@@ -294,47 +294,47 @@
       d.appendChild(n);
     };
 
-    heading("Sohbet (yaklaşık)");
+    heading("Chat (approximate)");
     d.append(
-      row("Sen", fmt(s.user)),
+      row("You", fmt(s.user)),
       row("Claude", fmt(s.claude)),
-      row("Ekler", fmt(s.attachments)),
-      row("Yanıt sayısı", String(s.turns)),
-      row("Toplam işlenen", fmt(s.processed))
+      row("Attachments", fmt(s.attachments)),
+      row("Replies", String(s.turns)),
+      row("Total processed", fmt(s.processed))
     );
     note(
       s.source === "api"
-        ? "Karakter sayısından tahmin. Thinking tokenları claude.ai tarafından gösterilmez, dahil değil."
-        : "Sayfa metninden tahmin. Ekler sayılmadı."
+        ? "Estimated from character count. claude.ai doesn't expose thinking tokens, so they aren't included."
+        : "Estimated from page text. Attachments not counted."
     );
 
     if (limits) {
-      heading("Kullanım limitleri (claude.ai'nin kendi değeri)");
+      heading("Usage limits (claude.ai's own value)");
       d.append(
-        row("Oturum sıfırlanması", resetText(limits.session, false) || "—"),
-        row("Haftalık sıfırlanma", resetText(limits.weekly, true) || "—")
+        row("Session resets", resetText(limits.session, false) || "—"),
+        row("Weekly resets", resetText(limits.weekly, true) || "—")
       );
     }
 
-    heading("Taban tahmin (sistem promptu)");
+    heading("Baseline estimate (system prompt)");
     if (base) {
-      const mark = { "her-zaman": "•", acik: "✓", kapali: "–", bilinmiyor: "?" };
+      const mark = { always: "•", on: "✓", off: "–", unknown: "?" };
       for (const g of base.groups) {
-        d.appendChild(row(`${mark[g.state]} ${g.etiket}`, g.state === "kapali" ? "kapalı" : fmt(g.tokens)));
+        d.appendChild(row(`${mark[g.state]} ${g.label}`, g.state === "off" ? "off" : fmt(g.tokens)));
       }
-      if (base.connectors) d.appendChild(row("Bağlayıcılar (bağlıysa)", `+${fmt(base.connectors)}`));
+      if (base.connectors) d.appendChild(row("Connectors (if connected)", `+${fmt(base.connectors)}`));
       note(
-        `${base.model} referans promptu, count_tokens ile ${base.countedAt} tarihinde sayıldı. ` +
-          "Özellik eşlemesi ve claude.ai'nin birebir bu promptu kullanması varsayımdır." +
-          (base.unknown ? " '?' olanların açık/kapalı durumu okunamadı, açık sayıldı." : "")
+        `${base.model} reference prompt, counted with count_tokens on ${base.countedAt}. ` +
+          "The feature mapping, and claude.ai using exactly this prompt, are assumptions." +
+          (base.unknown ? " Items marked '?' couldn't be read as on/off and were counted as on." : "")
       );
     } else {
-      note(`${s.model || "Bu model"} için referans prompt yok.`);
+      note(`No reference prompt for ${s.model || "this model"}.`);
     }
     el.appendChild(d);
   }
 
-  // --- Güncelleme döngüsü --------------------------------------------------
+  // --- Refresh loop --------------------------------------------------------
   let timer = null;
   let running = false;
 
@@ -349,7 +349,7 @@
       try {
         s = statsFromConversation(await fetchConversation(id));
       } catch (e) {
-        console.debug("[Claude Token Sayacı] API okunamadı, sayfa metni kullanılıyor:", e);
+        console.debug("[Claude Token Counter] Couldn't read the API, using page text:", e);
         s = statsFromDom();
       }
       render(s, settings, limits);
@@ -363,7 +363,7 @@
     timer = setTimeout(refresh, REFRESH_DEBOUNCE_MS);
   }
 
-  // Yanıt akışı bitince (DOM değişiklikleri durulunca) ve sohbet değişince yenile.
+  // Refresh once the reply stream finishes (DOM changes settle) and when the chat changes.
   new MutationObserver((mutations) => {
     if (mutations.every((m) => badge().contains(m.target))) return;
     schedule();

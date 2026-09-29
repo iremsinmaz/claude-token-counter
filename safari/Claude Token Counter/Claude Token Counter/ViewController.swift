@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  Claude Token Sayaci
+//  Claude Token Counter
 //
-//  Created by Elif Irem Sinmaz on 28.09.2026.
+//  Created by Elif Irem Sinmaz on 29.09.2026.
 //
 
 import Cocoa

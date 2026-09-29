@@ -1,4 +1,4 @@
-# Yeni sistem promptları varsayılan olarak yayınlanmaz; paylaşılacak olanlar aşağıda tek tek açılır.
+# New system prompts are not published by default; files to share are allowed one by one below.
 reference/*.md
 !reference/claude-opus-5.5.md
 

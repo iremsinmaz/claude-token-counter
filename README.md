@@ -1,85 +1,85 @@
-# Claude Token Sayacı
+# Claude Token Counter
 
-claude.ai'de açık sohbetin kaç token tuttuğunu, sistem promptunun tahmini yükünü ve hesabının kullanım limitlerini sağ alt köşede küçük bir rozet olarak gösteren tarayıcı eklentisi. Chrome ve Safari'de çalışır.
+A browser extension that shows, as a small badge in the bottom-right corner of claude.ai, how many tokens the open chat takes up, the estimated load of the system prompt, and your account's usage limits. Works in Chrome and Safari.
 
 ```
-Sohbet: ~12.4k token
-Oturum limiti      %34
-Haftalık limit     %12
-Taban tahmin    94.6k token
+Chat: ~12.4k tokens
+Session limit        34%
+Weekly limit         12%
+Baseline estimate  94.6k tokens
 ```
 
-Rozete tıklayınca ayrıntılar açılır.
+Click the badge to see the details.
 
-## Hangi sayı ne kadar güvenilir?
+## How reliable is each number?
 
-| Satır | Kaynak | Güvenilirlik |
+| Line | Source | Reliability |
 |---|---|---|
-| **Sohbet** | Mesajlar, ekler; karakter sayısından hesaplanır | Yaklaşık. Thinking tokenları claude.ai tarafından gösterilmez, dahil değil. |
-| **Oturum / Haftalık limit** | claude.ai'nin kendi `/usage` yanıtı | Sunucunun değeri, tahmin değil. |
-| **Taban tahmin** | Sistem promptunun açık özelliklere ait bölümleri, `count_tokens` ile önceden sayılmış | Bölümler kesin sayıldı; claude.ai'nin birebir bu promptu kullandığı ve bölüm-özellik eşlemesi varsayımdır. |
+| **Chat** | Messages and attachments, estimated from character count | Approximate. claude.ai doesn't expose thinking tokens, so they aren't included. |
+| **Session / Weekly limit** | claude.ai's own `/usage` response | The server's value, not an estimate. |
+| **Baseline estimate** | The system prompt sections for enabled features, pre-counted with `count_tokens` | The sections are counted exactly; that claude.ai uses exactly this prompt, and the section-to-feature mapping, are assumptions. |
 
-Taban tahmin sohbet sayısına eklenmez, ikisi ayrı durur. Bağlayıcı araçları (Gmail, Takvim, Drive, Docs) kimin hesabında neyin bağlı olduğu bilinemediği için tabana eklenmez, ayrıntılarda "bağlıysa" diye ayrıca gösterilir.
+The baseline is not added to the chat count; the two stay separate. Connector tools (Gmail, Calendar, Drive, Docs) are not added to the baseline, since there's no way to know which ones an account has connected; the details show them separately as "if connected".
 
-## Eklenti neye erişir?
+## What does the extension access?
 
-- Yalnızca `https://claude.ai/*` üzerinde çalışır. Başka sitelere, sekmelere, çerezlere ya da tarayıcı geçmişine özel izin istemez.
-- Yaptığı tüm istekler claude.ai'ye gider (açık sohbet, hesap ayarları, kullanım limitleri). Hiçbir veriyi başka bir yere göndermez, hiçbir şey saklamaz.
-- Kodun tamamı [`extension/content.js`](extension/content.js).
+- It runs only on `https://claude.ai/*`. It asks for no special permission on other sites, tabs, cookies, or browsing history.
+- All of its requests go to claude.ai (the open chat, account settings, usage limits). It sends no data anywhere else and stores nothing.
+- All of the code is in [`extension/content.js`](extension/content.js).
 
-Safari kurulumda "web sayfalarını okuyabilir, tarama geçmişini görebilir" gibi bir uyarı gösterir. Bu, sayfa içeriği okuyan her eklenti için çıkan standart metindir; izin yalnızca claude.ai için verilir.
+On install, Safari shows a warning like "can read webpages and see browsing history". That's the standard text for any extension that reads page content; the permission is granted for claude.ai only.
 
-> claude.ai'nin belgelenmemiş iç isteklerini kullanır. claude.ai değiştiğinde eklenti bozulabilir; sohbet verisi okunamazsa sayfadaki metne geri döner.
+> It uses claude.ai's undocumented internal endpoints. If claude.ai changes, the extension may break; if chat data can't be read, it falls back to the page text.
 
-## Kurulum
+## Installation
 
-Eklenti henüz bir mağazada yok; her tarayıcıda klasörden, ücretsiz kurulur.
+The extension isn't in any store yet; in every browser it's installed from the folder, for free.
 
-### Chrome (ve Edge, Brave gibi Chromium tabanlı tarayıcılar)
+### Chrome (and Chromium-based browsers like Edge and Brave)
 
-1. Repoyu indir ya da klonla.
-2. `chrome://extensions` → sağ üstten **Geliştirici modu**'nu aç.
-3. **Paketlenmemiş öğe yükle** → `extension` klasörünü seç.
+1. Download or clone the repo.
+2. Open `chrome://extensions` → turn on **Developer mode** in the top right.
+3. **Load unpacked** → select the `extension` folder.
 
-Kodu güncellediğinde eklentinin yanındaki **Yeniden yükle** düğmesine bas.
+When you update the code, click the extension's **Reload** button.
 
-### Safari (macOS, Xcode gerekir)
+### Safari (macOS, requires Xcode)
 
-1. Xcode ile derle:
+1. Build with Xcode:
    ```sh
-   cd "safari/Claude Token Sayaci"
-   xcodebuild -project "Claude Token Sayaci.xcodeproj" -scheme "Claude Token Sayaci" \
+   cd "safari/Claude Token Counter"
+   xcodebuild -project "Claude Token Counter.xcodeproj" -scheme "Claude Token Counter" \
      -configuration Release -derivedDataPath ../../build \
      CODE_SIGN_IDENTITY="-" CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM="" build
    ```
-2. Safari → Ayarlar → Gelişmiş → **Web geliştiricileri için özellikleri göster**.
-3. Geliştir → Geliştirici Ayarları… → **İmzasız eklentilere izin ver**. (Safari her yeniden başladığında tekrar açılması gerekir.)
-4. Uygulamayı bir kez aç:
+2. Safari → Settings → Advanced → **Show features for web developers**.
+3. Develop → Developer Settings… → **Allow unsigned extensions**. (This has to be turned on again every time Safari restarts.)
+4. Open the app once:
    ```sh
-   open "build/Build/Products/Release/Claude Token Sayaci.app"
+   open "build/Build/Products/Release/Claude Token Counter.app"
    ```
-5. Safari → Ayarlar → Eklentiler → **Claude Token Sayacı**'nı etkinleştir ve claude.ai için izin ver.
+5. Safari → Settings → Extensions → enable **Claude Token Counter** and allow it on claude.ai.
 
-## Taban tahmini güncellemek
+## Updating the baseline
 
-Anthropic sistem promptunu model ve sürüme göre günceller. Taban değer eklenti çalışırken hesaplanmaz; bir kez sayılıp [`extension/baseline.js`](extension/baseline.js) içine sabit yazılır.
+Anthropic updates the system prompt per model and version. The baseline isn't computed while the extension runs; it's counted once and written as fixed values into [`extension/baseline.js`](extension/baseline.js).
 
-1. Güncel sistem promptunu `reference/<model>.md` olarak kaydet. Dosya adı model kimliğini belirler: `claude-opus-5.5.md` → `claude-opus-5-5`. Mevcut taban [`reference/claude-opus-5.5.md`](reference/claude-opus-5.5.md) ile sayıldı; yeni eklenen prompt dosyaları `.gitignore` ile varsayılan olarak repoya girmez.
-2. Gerekirse [`reference/bolumler.json`](reference/bolumler.json) içindeki kuralları güncelle. Hangi başlığın hangi özellik bayrağına ait olduğu burada tanımlı.
-3. Sayımı çalıştır (`count_tokens` ücretsizdir, ama prompt metni Anthropic API'sine gönderilir):
+1. Save the current system prompt as `reference/<model>.md`. The file name sets the model id: `claude-opus-5.5.md` → `claude-opus-5-5`. The current baseline was counted from [`reference/claude-opus-5.5.md`](reference/claude-opus-5.5.md); newly added prompt files are kept out of the repo by `.gitignore` by default.
+2. If needed, update the rules in [`reference/sections.json`](reference/sections.json). This is where each heading is mapped to a feature flag.
+3. Run the count (`count_tokens` is free, but the prompt text is sent to the Anthropic API):
    ```sh
-   ANTHROPIC_API_KEY=... node scripts/taban-hesapla.mjs
+   ANTHROPIC_API_KEY=... node scripts/count-baseline.mjs
    ```
-4. Chrome'da eklentiyi yeniden yükle; Safari'de yeniden derle.
+4. Reload the extension in Chrome; rebuild in Safari.
 
-## Simge
+## Icon
 
-Simgeler [`scripts/simge-uret.py`](scripts/simge-uret.py) ile çizilir (Pillow gerekir): `python3 scripts/simge-uret.py`. Safari uygulamasının simgesi, Xcode projesi `safari-web-extension-converter` ile yeniden üretilirken bunlardan oluşturulur.
+The icons are drawn by [`scripts/make-icons.py`](scripts/make-icons.py) (requires Pillow): `python3 scripts/make-icons.py`. The Safari app icon is generated from them when the Xcode project is regenerated with `safari-web-extension-converter`.
 
-## Teşekkür
+## Acknowledgements
 
-Özellik bayraklarının adları ve `/usage` isteği [lugia19/Claude-Usage-Extension](https://github.com/lugia19/Claude-Usage-Extension)'dan öğrenildi. Oradan kod alınmadı; daha kapsamlı bir kullanım takibi arıyorsan o eklentiye göz at.
+The feature flag names and the `/usage` endpoint were learned from [lugia19/Claude-Usage-Extension](https://github.com/lugia19/Claude-Usage-Extension). No code was taken from it; if you're looking for more comprehensive usage tracking, check out that extension.
 
-## Lisans
+## License
 
 [MIT](LICENSE)

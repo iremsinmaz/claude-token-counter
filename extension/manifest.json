@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Claude Token Sayacı",
+  "name": "Claude Token Counter",
   "version": "1.0.0",
-  "description": "claude.ai sohbetlerinde kullanılan tahmini token sayısını canlı gösterir.",
+  "description": "Shows the estimated token count of your claude.ai chats, the system prompt baseline, and your usage limits.",
   "icons": {
     "16": "icons/icon-16.png",
     "32": "icons/icon-32.png",
