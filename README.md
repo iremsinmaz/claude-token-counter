@@ -41,12 +41,6 @@ Eklenti henüz bir mağazada yok; her tarayıcıda klasörden, ücretsiz kurulur
 2. `chrome://extensions` → sağ üstten **Geliştirici modu**'nu aç.
 3. **Paketlenmemiş öğe yükle** → `extension` klasörünü seç.
 
-### Opera
-
-1. Repoyu indir ya da klonla.
-2. `opera://extensions` → **Geliştirici modu**'nu (Developer Mode) aç.
-3. **Paketlenmemiş öğe yükle** (Load Extension) → `extension` klasörünü seç.
-
 Kodu güncellediğinde eklentinin yanındaki **Yeniden yükle** düğmesine bas.
 
 ### Safari (macOS, Xcode gerekir)
